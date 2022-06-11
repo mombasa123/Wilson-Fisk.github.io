@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="context.Kingpin" name="Kingpin - Global Context Menu Items" provider-name="Kingpin" version="0.0.1">
+<addons><addon id="context.Kingpin" name="Kingpin - Global Context Menu Items" provider-name="Kingpin" version="0.0.2">
 	<requires>
 		<import addon="script.module.requests" version="2.19.1" />
 	</requires>
@@ -139,7 +139,7 @@
 [COLOR yellow]--[/COLOR][I] The "Rescrape Item" context menu now has a pop-up select method of 4 possible choices to rescrape.  You can set a preferred default action in the settings to bypass the select dialog pop up.[/I]
 		</news>
 	</extension>
-</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.1">
+</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.2">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="context.Kingpin" version="0.0.1" />
@@ -198,7 +198,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.kingpinaccounts" version="0.0.1" name="Kingpin Accounts" provider-name="Kingpin">
+</addon><addon id="script.module.kingpinaccounts" version="0.0.2" name="Kingpin Accounts" provider-name="Kingpin">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" version="2.19.1" />
@@ -229,7 +229,7 @@
 [COLOR yellow]--[/COLOR][I] Fixed issue with "check for updates" using old github url.[/I]
 		</news>
 	</extension>
-</addon><addon id="script.module.kingpinscrapers" name="kingpinScrapers Module" version="0.0.1" provider-name="Kingpin">
+</addon><addon id="script.module.kingpinscrapers" name="kingpinScrapers Module" version="0.0.2" provider-name="Kingpin">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" />
