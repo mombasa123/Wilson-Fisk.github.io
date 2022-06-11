@@ -4,9 +4,6 @@
 [submodule "kingpin"]
 	path = kingpin
 	url = https://github.com/Wilson-Fisk/kingpin.git
-[submodule "Kingpin Scrapers"]
-	path = Kingpin Scrapers
-	url = https://github.com/Wilson-Fisk/KS.git
 [submodule "KingpinContext"]
 	path = KingpinContext
 	url = https://github.com/Wilson-Fisk/KingpinContext.git
