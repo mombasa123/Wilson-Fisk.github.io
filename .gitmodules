@@ -10,3 +10,6 @@
 [submodule "KingpinContext"]
 	path = KingpinContext
 	url = https://github.com/Wilson-Fisk/KingpinContext.git
+[submodule "repo/Kingpin Accounts"]
+	path = repo/Kingpin Accounts
+	url = https://github.com/Wilson-Fisk/KA.git
