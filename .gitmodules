@@ -4,3 +4,12 @@
 [submodule "repo/Kingpin Accounts"]
 	path = repo/Kingpin Accounts
 	url = https://github.com/Wilson-Fisk/KA.git
+[submodule "repo/Kingpin"]
+	path = repo/Kingpin
+	url = https://github.com/Wilson-Fisk/kingpin.git
+[submodule "repo/Kingpin Scrapers"]
+	path = repo/Kingpin Scrapers
+	url = https://github.com/Wilson-Fisk/KS.git
+[submodule "repo/Kingpin Context"]
+	path = repo/Kingpin Context
+	url = https://github.com/Wilson-Fisk/KingpinContext.git
