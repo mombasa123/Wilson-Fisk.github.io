@@ -1,9 +1,6 @@
 [submodule "kingpin accounts\""]
 	path = kingpin accounts\"
 	url = \"C:\\Users\\Logan\\Documents\\kingpin repo\\Wilson-Fisk\\repo\\kingpin accounts\"
-[submodule "kingpin"]
-	path = kingpin
-	url = https://github.com/Wilson-Fisk/kingpin.git
 [submodule "repo/Kingpin Accounts"]
 	path = repo/Kingpin Accounts
 	url = https://github.com/Wilson-Fisk/KA.git
