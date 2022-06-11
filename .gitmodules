@@ -7,3 +7,6 @@
 [submodule "Kingpin Accounts"]
 	path = Kingpin Accounts
 	url = https://github.com/Wilson-Fisk/KA.git
+[submodule "Kingpin Scrapers"]
+	path = Kingpin Scrapers
+	url = https://github.com/Wilson-Fisk/KS.git
