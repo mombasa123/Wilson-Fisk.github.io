@@ -139,7 +139,7 @@
 [COLOR yellow]--[/COLOR][I] The "Rescrape Item" context menu now has a pop-up select method of 4 possible choices to rescrape.  You can set a preferred default action in the settings to bypass the select dialog pop up.[/I]
 		</news>
 	</extension>
-</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.7">
+</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.8">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="context.kingpin" version="0.0.6" />
