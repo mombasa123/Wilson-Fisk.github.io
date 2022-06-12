@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='utf-8'?>
+<addons><addon id="context.kingpin" name="Kingpin - Global Context Menu Items" provider-name="Kingpin" version="0.0.5">
+	<requires>
+		<import addon="script.module.requests" version="2.19.1" />
+	</requires>
+	<extension point="kodi.context.item">
+		<menu id="kodi.core.main">
+			<item library="contextSettings.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - CM Settings</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.settings)) +
+					String.StartsWith(ListItem.path,plugin://plugin.video.Kingpin/) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true)
+				</visible>
+			</item>
+			<item library="traktManager.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Trakt Manager</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.traktManager)) +
+					String.StartsWith(ListItem.path,plugin://plugin.video.Kingpin/) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,tvshow) | String.IsEqual(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie)]
+				</visible>
+			</item>
+			<item library="clearProviders.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Clear Providers</label>
+				<visible>
+					[!String.IsEmpty(Window(home).Property(context.Kingpin.clearProviders)) +
+					String.StartsWith(ListItem.FolderPath,plugin://plugin.video.Kingpin/?action=play) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]] |
+					[String.Contains(Container.FolderPath,videodb://) +
+					[String.Contains(Container.ListItem.Path,Window(home).Property(Kingpin.movieLib.path)) | String.Contains(Container.ListItem.Path,Window(home).Property(Kingpin.tvLib.path))] +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]]
+				</visible>
+			</item>
+			<item library="clearBookmark.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Clear Item Bookmark</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.clearBookmark)) +
+					String.StartsWith(ListItem.FolderPath,plugin://plugin.video.Kingpin/?action=play) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					ListItem.IsResumable +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]
+				</visible>
+			</item>
+			<item library="rescrape.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Rescrape Item</label>
+				<visible>
+					[!String.IsEmpty(Window(home).Property(context.Kingpin.rescrape)) +
+					String.StartsWith(ListItem.FolderPath,plugin://plugin.video.Kingpin/?action=play) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]]
+				</visible>
+			</item>
+			<item library="libRescrape.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Rescrape Lib Item</label>
+				<visible>
+					String.Contains(Container.FolderPath,videodb://) +
+					[String.Contains(Container.ListItem.Path,Window(home).Property(Kingpin.movieLib.path)) | String.Contains(Container.ListItem.Path,Window(home).Property(Kingpin.tvLib.path))] +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]
+				</visible>
+			</item>
+			<item library="playFromHere.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Play from here</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.playFromHere)) +
+					String.StartsWith(ListItem.path,plugin://plugin.video.Kingpin/) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					String.IsEqual(ListItem.dbtype,episode)
+				</visible>
+			</item>
+			<item library="autoPlay.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Auto Play</label>
+				<visible>
+					String.IsEmpty(Window(home).Property(Kingpin.autoPlay.enabled)) +
+					!String.IsEmpty(Window(home).Property(context.Kingpin.autoPlay)) +
+					String.StartsWith(ListItem.FolderPath,plugin://plugin.video.Kingpin/?action=play) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]
+				</visible>
+			</item>
+			<item library="sourceSelect.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Source Select</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(Kingpin.autoPlay.enabled)) +
+					!String.IsEmpty(Window(home).Property(context.Kingpin.sourceSelect)) +
+					String.StartsWith(ListItem.FolderPath,plugin://plugin.video.Kingpin/?action=play) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,movie)]
+				</visible>
+			</item>
+			<item library="findSimilar.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Find Similar</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.findSimilar)) +
+					String.StartsWith(ListItem.path,plugin://plugin.video.Kingpin/) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,tvshow) | String.IsEqual(ListItem.dbtype,movie)]
+				</visible>
+			</item>
+			<item library="browseSeries.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Browse Series</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.browseSeries)) +
+					String.StartsWith(ListItem.path,plugin://plugin.video.Kingpin/) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,tvshow)]
+				</visible>
+			</item>
+			<item library="browseEpisodes.py">
+				<label>[B][COLOR red]Kingpin[/COLOR][/B] - Browse Episodes</label>
+				<visible>
+					!String.IsEmpty(Window(home).Property(context.Kingpin.browseEpisodes)) +
+					String.StartsWith(ListItem.path,plugin://plugin.video.Kingpin/) +
+					String.IsEqual(ListItem.Property(isKingpin_widget),true) +
+					String.IsEqual(ListItem.dbtype,episode)
+				</visible>
+			</item>
+		</menu>
+	</extension>
+	<extension point="xbmc.service" library="service.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Kingpin - This Addon is currently in beta. Please be aware there may be bugs present</summary>
+		<description lang="en">Adds Global Contextual Menu Items for Kingpin menu items throughout Kodi</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum />
+		<website>https://github.com/123Kingpin/context.Kingpin</website>
+		<source>https://github.com/123Kingpin/context.Kingpin</source>
+		<disclaimer lang="en" />
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+			<screenshot />
+		</assets>
+		<news>
+[B][COLOR red]Update - v1.2.1 - Nov. 04, 2021[/COLOR][/B]
+[COLOR yellow]--[/COLOR][I] The "Rescrape Item" context menu now has a pop-up select method of 4 possible choices to rescrape.  You can set a preferred default action in the settings to bypass the select dialog pop up.[/I]
+		</news>
+	</extension>
+</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.3">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="context.kingpin" version="0.0.3" />
+		<import addon="script.module.kingpinaccounts" version="0.0.1" />
+		<import addon="script.module.kingpinscrapers" version="0.0.1" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.beautifulsoup4" />
+		<import addon="script.module.metahandler" optional="true" />
+		<import addon="plugin.video.youtube" optional="true" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="kingpin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.python.module" library="resources/lib/" />
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>true</reuselanguageinvoker>
+		<summary lang="en">[B][COLOR red]kingpin[/COLOR][/B] - We do not host any of the contents streamed</summary>
+		<description lang="en">[B][COLOR red]kingpin[/COLOR][/B][CR] This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels.[CR]The author does not host any of the content in this addon and takes no responsibility for content found</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum />
+		<website>https://github.com/123kingpin/plugin.video.kingpin</website>
+		<source>https://github.com/123kingpin/plugin.video.kingpin</source>
+		<disclaimer lang="en">The author of this addon does not host any of the content which is found and have no affiliation with any of the content providers. This addon simply searches websites for content. Use at your own risk!</disclaimer>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+			<screenshot>resources/screenshots/screenshot001.jpg</screenshot>
+			<screenshot>resources/screenshots/screenshot002.jpg</screenshot>
+			<screenshot>resources/screenshots/screenshot003.jpg</screenshot>
+		</assets>
+		<news>
+[B][COLOR red]Update - v6.5.6 - April 09, 2022[/COLOR][/B]
+[COLOR yellow]--[/COLOR][I] Due to report of timeout error I've bumped the timeout value from 10 to 20 for fanarttv, tmdb, tvmaze, and trakt indexers.[/I]
+[COLOR yellow]--[/COLOR][I] Trakt scrobble reset has been moved to "[B]onAVStarted()[/B]" callback method due to a bug in the Kodi player "[B]onPlayBackEnded()[/B]" method being issued after the next playlist item already began playback.[/I]
+[COLOR yellow]--[/COLOR][I] Added the Source Select index number to the Resolve dialog. Now if a resolve failure occurs you'll know which item number the failure occurred on.[/I]
+[COLOR yellow]--[/COLOR][I] Added a new setting to the "[B]Trakt"[/B] category called [B]"Browse Progress - load all remaining episodes of series"[/B].  Please see the help file below the new setting for a detailed explanation on it's functionality.[/I]
+		</news>
+	</extension>
+</addon><addon id="repository.kingpin" name="Kingpin Repo" version="1.0" provider-name="Wilson-Fisk">
+    <extension point="xbmc.addon.repository" name="Example Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Wilson-Fisk/Wilson-Fisk.github.io/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Wilson-Fisk/Wilson-Fisk.github.io/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Wilson-Fisk/Wilson-Fisk.github.io/master/repo/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Kingpin Repo</summary>
+        <description>The Kingpin Repo</description>
+        <disclaimer />
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon><addon id="script.module.kingpinaccounts" version="0.0.2" name="Kingpin Accounts" provider-name="Kingpin">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="script.module.requests" version="2.19.1" />
+	</requires>
+	<extension point="xbmc.python.script" library="lib/default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.service" library="lib/service.py" start="startup" />
+	<extension point="xbmc.python.module" library="lib" /> 
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>false</reuselanguageinvoker>
+		<summary lang="en">My Accounts Module</summary>
+		<description>Single placeholder for all your accounts.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum />
+		<website>https://github.com/Mr-Kodi/repository.kingpinaccounts</website>
+		<source>https://github.com/Mr-Kodi/repository.kingpinaccounts</source>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. [CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.png</fanart>
+			<screenshot />
+		</assets>
+		<news>
+[B][COLOR red]Update - v2.0.0 - Nov. 23, 2021[/COLOR][/B]
+[COLOR yellow]--[/COLOR][I] First official py3 only version for Kodi Matrix.[/I]
+[COLOR yellow]--[/COLOR][I] Fixed issue with "check for updates" using old github url.[/I]
+		</news>
+	</extension>
+</addon><addon id="script.module.kingpinscrapers" name="kingpinScrapers Module" version="0.0.2" provider-name="Kingpin">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.kingpinaccounts" version="0.0.1" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="lib/default.py">
+		<provides>executable</provides>
+	</extension> 
+	<extension point="xbmc.service" library="lib/service.py" start="startup" />
+	<extension point="xbmc.python.module" library="lib" /> 
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>false</reuselanguageinvoker>
+		<summary lang="en">kingpinScrapers Module</summary>
+		<description>Scrape common video host for URL's to be playable in Kodi, simplifying addon development of video plugins requiring multi video hosts.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum />
+		<website>https://github.com/Mr-Kodi/repository.kingpinscrapers</website>
+		<source>https://github.com/Mr-Kodi/repository.kingpinscrapers</source>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon.[CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.png</fanart>
+			<screenshot />
+		</assets>
+		<news>
+[B][COLOR red]Update - v2.1.8 - April 07, 2022[/COLOR][/B]
+[COLOR yellow]--[/COLOR][I] Fixed BITCQ bug in pack file title checking.[/I]
+[COLOR yellow]--[/COLOR][I] Updated torrentinfo help file.[/I]
+[COLOR yellow]--[/COLOR][I] Small fix for BITSEARCH query results when an item might contain a new liked count mucking with the index.[/I]
+		</news>
+	</extension>
+</addon></addons>
