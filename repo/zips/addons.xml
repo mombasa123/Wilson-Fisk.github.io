@@ -139,12 +139,12 @@
 [COLOR yellow]--[/COLOR][I] The "Rescrape Item" context menu now has a pop-up select method of 4 possible choices to rescrape.  You can set a preferred default action in the settings to bypass the select dialog pop up.[/I]
 		</news>
 	</extension>
-</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.11">
+</addon><addon id="plugin.video.kingpin" name="[COLOR gold]kingpin[/COLOR]" provider-name="kingpin" version="0.0.12">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="context.kingpin" version="0.0.6" />
-		<import addon="script.module.myaccounts" version="2.0.4" />
-		<import addon="script.module.kingpinscrapers" version="0.0.3" />
+		<import addon="script.module.myaccounts" version="2.0.5d" />
+		<import addon="script.module.kingpinscrapers" version="0.0.5" />
 		<import addon="script.module.requests" />
 		<import addon="script.module.beautifulsoup4" />
 		<import addon="script.module.metahandler" optional="true" />
@@ -198,11 +198,11 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.kingpinscrapers" name="kingpinScrapers Module" version="0.0.4" provider-name="Kingpin">
+</addon><addon id="script.module.kingpinscrapers" name="kingpinScrapers Module" version="0.0.5" provider-name="Kingpin">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" />
-		<import addon="script.module.myaccounts" version="2.0.4" />
+		<import addon="script.module.myaccounts" version="2.0.5d" />
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="lib/default.py">
 		<provides>executable</provides>
@@ -231,7 +231,7 @@
 [COLOR yellow]--[/COLOR][I] Small fix for BITSEARCH query results when an item might contain a new liked count mucking with the index.[/I]
 		</news>
 	</extension>
-</addon><addon id="script.module.myaccounts" version="2.0.4" name="Ezra Accounts" provider-name="Ezra Hubbard">
+</addon><addon id="script.module.myaccounts" version="2.0.5d" name="My Accounts" provider-name="Ezra Hubbard">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" version="2.19.1" />
